@@ -1,0 +1,16 @@
+{
+  "name": "flow-chat-presentation",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.48.0-beta.0",
+    "@slidev/theme-default": "^0.25.0"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.30"
+  }
+}

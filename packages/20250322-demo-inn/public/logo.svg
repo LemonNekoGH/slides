@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <style>
+    .flow-chat-logo {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .node {
+      fill: #fff;
+      stroke: #333;
+    }
+    .line {
+      stroke: #666;
+    }
+    @media (prefers-color-scheme: dark) {
+      .node {
+        fill: #333;
+        stroke: #eee;
+      }
+      .line {
+        stroke: #ccc;
+      }
+    }
+  </style>
+
+  <!-- 连接线 -->
+  <path class="flow-chat-logo line" d="M50,20 L50,35" />
+  <path class="flow-chat-logo line" d="M50,55 L50,65" />
+  <path class="flow-chat-logo line" d="M50,65 L30,75" />
+  <path class="flow-chat-logo line" d="M50,65 L70,75" />
+
+  <!-- 节点 -->
+  <circle class="flow-chat-logo node" cx="50" cy="15" r="10" />
+  <rect class="flow-chat-logo node" x="30" y="35" width="40" height="20" rx="5" />
+  <circle class="flow-chat-logo node" cx="30" cy="85" r="10" />
+  <circle class="flow-chat-logo node" cx="70" cy="85" r="10" />
+</svg>
