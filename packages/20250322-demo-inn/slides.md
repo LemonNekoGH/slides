@@ -1,6 +1,6 @@
 ---
 theme: default
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: /generated-nomai-lang-1742631612365.png
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -20,10 +20,6 @@ title: Flow Chat - 分支式聊天应用
   <img src="/screenshot_battle_with_cursor_1.jpg" class="w-468px h-96px" />
 </div>
 
-<div class="flex justify-center my-4">
-  <img src="/logo.svg" class="w-32 h-32" />
-</div>
-
 <div class="pt-6">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
     开始演示 <carbon:arrow-right class="inline"/>
@@ -38,7 +34,9 @@ title: Flow Chat - 分支式聊天应用
 </div>
 
 ---
+theme: default
 layout: two-cols
+background: /generated-nomai-lang-1742631612365.png
 ---
 
 # 传统聊天应用的痛点
@@ -211,7 +209,7 @@ layout: center
 layout: default
 ---
 
-# 技术实现
+# 使用的技术与挑战
 
 <div grid="~ cols-2 gap-4">
 <div>
@@ -221,26 +219,20 @@ layout: default
 - Vue.js + Vite 构建
 - Vue Flow 实现流程图
 - Pinia 状态管理
-- 支持多种 LLM 模型接入
-- 响应式设计
+- xsai 实现 LLM 模型接入
 
 </v-clicks>
 
 </div>
 <div>
 
-```ts {all|2-3|5-6|all}
+```ts {all|3,6|4|5|all}
 // 分支管理核心代码
-function getBranchById(id?: string | null) {
-  const messages: Message[] = []
-  const ids = new Set<string>()
-  for (let message = getMessageById(id);
-    message;
-    message = getParentMessage(message)) {
-    messages.push(message)
-    ids.add(message.id)
-  }
-  return { messages: messages.reverse(), ids }
+export interface Message {
+  id: string
+  content: string
+  role: 'user' | 'assistant' | 'system'
+  parentId: string | null
 }
 ```
 
@@ -248,14 +240,14 @@ function getBranchById(id?: string | null) {
 </div>
 
 <div class="mt-8">
-  <div class="font-medium mb-2">用户体验挑战与解决方案</div>
+  <div class="font-medium mb-2">用户体验挑战</div>
   <div class="grid grid-cols-2 gap-4">
     <div class="border p-3 rounded-lg bg-white dark:bg-gray-800">
       <div class="font-medium text-sm">节点高度问题</div>
       <div class="text-sm text-gray-600 dark:text-gray-400">当 LLM 生成大量文本时，节点高度变得过大</div>
     </div>
     <div class="border p-3 rounded-lg bg-white dark:bg-gray-800">
-      <div class="font-medium text-sm">分支可视化</div>
+      <div class="font-medium text-sm">移动端适配</div>
       <div class="text-sm text-gray-600 dark:text-gray-400">保持流程图的清晰度和可读性</div>
     </div>
   </div>
@@ -302,13 +294,26 @@ class: text-center
 
 # 谢谢观看
 
-<div class="flex justify-center mt-8">
-  <div class="px-4 text-center">
-    <carbon-logo-github class="text-5xl mx-auto" />
-    <div class="mt-2">github.com/LemonNekoGH/flow-chat</div>
+<div class="flex gap-10 w-full">
+  <div class="flex flex-col items-center flex-1">
+    <div class="font-medium">GitHub</div>
+    <div class="font-medium">LemonNekoGH/flow-chat</div>
+    <div class="flex items-center justify-center w-50 h-50 bg-cover" style="background-image: url(/flow-chat-repo.png)">
+      <carbon-logo-github class="text-4xl mx-auto text-black bg-white" />
+    </div>
+  </div>
+  <div class="flex flex-col items-center flex-1">
+    <div class="font-medium">在线 Demo</div>
+    <div class="font-medium text-nowrap">https://flow-chat.lemonneko.moe</div>
+    <div class="flex items-center justify-center w-50 h-50 bg-cover" style="background-image: url(/flow-chat-demo.png)">
+      <carbon-license-global class="text-4xl mx-auto text-black bg-white" />
+    </div>
   </div>
 </div>
-
 <div class="mt-12 text-xl">
   问答环节
 </div>
+
+---
+
+<div class="w-full h-full bg-center bg-contain bg-no-repeat bg-black" style="background-image: url(/generated-nomai-lang-1742631612365.png)"></div>
