@@ -12,6 +12,5 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.30"
-  },
-  "packageManager": "pnpm@10.6.4"
+  }
 }
