@@ -5,37 +5,19 @@ lineNumbers: false
 info: FlowChat Direct
 drawings:
   persist: false
-transition: slide-left
+transition: slide-up
 title: FlowChat Direct
 layout: default
 ---
 
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { createConnection } from '~/utils/connections'
-
-const path = ref('')
-
-onMounted(() => {
-  requestAnimationFrame(() => {
-    const parentElement = document.getElementById('page1-root')
-    const titleElement = document.getElementById('title')
-    const authorElement = document.getElementById('author')
-    if (parentElement && titleElement && authorElement) {
-      path.value = createConnection(parentElement, titleElement, authorElement)
-    }
-  })
-})
-</script>
-
 <div id="page1-root" class="w-full h-full absolute top-0 left-0">
-  <div class="w-full h-full absolute top-0 left-0 flex justify-left items-center pl-20">
-    <UserNode id="title" ref="title" class="b-4 rounded-xl">
+  <div class="w-full h-full absolute top-0 left-0 flex justify-center items-center">
+    <UserNode id="title" ref="title" class="b-4 rounded-xl" :connections="['top', 'bottom']">
       <div class="text-6xl p-4">FlowChat Direct</div>
     </UserNode>
   </div>
   <div class="abs-br m-6 flex gap-2 justify-center items-center">
-    <AssistantNode id="author" ref="author">
+    <AssistantNode id="author" ref="author" :connections="['top', 'bottom']">
       <div class="px-2 text-lg">
         <span>LemonNekoGH</span>
         <a href="https://github.com/LemonNekoGH" target="_blank" alt="GitHub"
@@ -45,9 +27,12 @@ onMounted(() => {
       </div>
     </AssistantNode>
   </div>
-  <svg class="absolute top-0 left-0 w-full h-full pointer-events-none">
-    <path :d="path" stroke="#ccc" stroke-width="2" fill="none" />
-  </svg>
+  <ConnectionLine
+    parent-selector="#page1-root"
+    start-selector="#title"
+    end-selector="#author"
+    direction="vertical"
+  />
 </div>
 
 <!--
