@@ -1,0 +1,18 @@
+{
+  "name": "flow-chat-20260129",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.48.0-beta.0",
+    "@slidev/theme-default": "^0.25.0",
+    "@vueuse/core": "^13.5.0",
+    "@vueuse/shared": "^14.0.0"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.30"
+  }
+}
