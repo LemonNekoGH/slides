@@ -12,12 +12,12 @@ layout: default
 
 <div id="page1-root" class="w-full h-full absolute top-0 left-0">
   <div class="w-full h-full absolute top-0 left-0 flex justify-center items-center">
-    <UserNode id="title" ref="title" class="b-4 rounded-xl" :connections="['top', 'bottom']">
+    <UserNode id="page-1-title" class="b-4 rounded-xl" :connections="['top', 'bottom']">
       <div class="text-6xl p-4">FlowChat Direct</div>
     </UserNode>
   </div>
   <div class="abs-br m-6 flex gap-2 justify-center items-center">
-    <AssistantNode id="author" ref="author" :connections="['top', 'bottom']">
+    <AssistantNode id="page-1-author" :connections="['top', 'bottom']">
       <div class="px-2 text-lg">
         <span>LemonNekoGH</span>
         <a href="https://github.com/LemonNekoGH" target="_blank" alt="GitHub"
@@ -27,51 +27,115 @@ layout: default
       </div>
     </AssistantNode>
   </div>
+  <div class="w-full h-full absolute top-[100%] left-0 flex justify-center items-center">
+    <UserNode id="page1-virtual-next" class="b-4 rounded-xl" :connections="['top', 'bottom']">
+      <div class="text-6xl p-4">都有哪些更新呢？</div>
+    </UserNode>
+  </div>
   <ConnectionLine
     parent-selector="#page1-root"
-    start-selector="#title"
-    end-selector="#author"
+    start-selector="#page-1-title"
+    end-selector="#page-1-author"
+    direction="vertical"
+  />
+  <ConnectionLine
+    parent-selector="#page1-root"
+    start-selector="#page-1-author"
+    end-selector="#page1-virtual-next"
     direction="vertical"
   />
 </div>
 
 <!--
-大家好，我是 LemonNeko，大家可以叫我柠喵。今天要给大家介绍的是 FlowChat 的一些进展。
+大家好，欢迎来到今天的 FlowChat 直面会（笑），我是 LemonNeko 柠猫，今天给大家带来的是 FlowChat 的一些进展。
 -->
 
 ---
 
-# 向量相似性搜索
+<div id="page2-root" class="w-full h-full absolute top-0 left-0">
+  <div class="w-full h-full absolute -top-[100%] left-0">
+    <div class="abs-br m-6 flex gap-2 justify-center items-center">
+      <AssistantNode id="page2-virtual-prev" :connections="['top', 'bottom']">
+        <div class="px-2 text-lg">
+          <span>LemonNekoGH</span>
+          <a href="https://github.com/LemonNekoGH" target="_blank" alt="GitHub"
+            class="text-xl slidev-icon-btn !border-none">
+            <carbon-logo-github />
+          </a>
+        </div>
+      </AssistantNode>
+    </div>
+  </div>
 
-- 实现了基于向量的语义搜索功能
-- 可以快速找到历史对话中的相关内容
-- 不再依赖简单的关键词匹配
-- 理解对话的语义含义
+  <div class="w-full h-full absolute top-0 left-0 flex justify-center items-center">
+    <UserNode id="page2-title" class="b-4 rounded-xl" :connections="['top', 'bottom']">
+      <div class="text-6xl p-4">都有哪些更新呢？</div>
+    </UserNode>
+  </div>
 
-::right::
+  <div id="page2-virtual-next" class="w-full h-full absolute top-[100%] left-0"></div>
 
-# 优化搜索 UI
+  <ConnectionLine
+    parent-selector="#page2-root"
+    start-selector="#page2-virtual-prev"
+    end-selector="#page2-title"
+    direction="vertical"
+  />
 
-- 采用类似命令面板的现代化界面
-- 快捷键快速唤起搜索
-- 实时显示搜索结果
-- 提升用户体验
-
-<!--
-首先是搜索功能的重大升级。我实现了向量相似性搜索，这意味着 FlowChat 现在可以理解你搜索内容的语义，
-而不仅仅是匹配关键词。同时，我还优化了搜索界面，采用了类似 VSCode 命令面板的设计，让搜索更加便捷。
--->
+  <ConnectionLine
+    parent-selector="#page2-root"
+    start-selector="#page2-title"
+    end-selector="#page2-virtual-next"
+    direction="vertical"
+  />
+</div>
 
 ---
 
-# 记忆系统
+<div id="page3-root" class="w-full h-full absolute top-0 left-0">
+  <AssistantNode  class="b-4 rounded-xl absolute top-8 left-8 w-max" id="page3-title" :connections="['top', 'bottom']">
+    <div class="text-5xl p-2">消息搜索</div>
+  </AssistantNode>
+  <UserNode class="b-4 rounded-xl absolute top-16 left-8 w-max" id="page3-video" :connections="['top', 'bottom']">
+    <div class="text-xl p-2">
+      <video src="/flow-chat-search.mp4" class="w-600px h-360px" controls />
+    </div>
+  </UserNode>
 
-FlowChat 现在拥有了记忆能力
+  <ConnectionLine
+    parent-selector="#page3-root"
+    start-selector="#page3-title"
+    end-selector="#page3-video"
+    direction="vertical"
+  />
+</div>
 
-- **基础记忆功能**：AI 可以记住对话中的重要信息
-- **两层提示词系统**：更好地管理上下文和记忆
-- **写入记忆工具**：AI 可以主动保存重要信息
-- **系统提示词增强**：自动添加当前时间等上下文信息
+---
+
+<div id="page4-root" class="w-full h-full absolute top-0 left-0">
+  <AssistantNode class="b-4 rounded-xl absolute top-8 left-8 w-max" id="page4-title" :connections="['top', 'bottom']">
+    <div class="text-5xl p-2">记忆系统</div>
+  </AssistantNode>
+
+  <UserNode class="b-4 rounded-xl absolute top-16 left-8 w-max" id="page4-video" :connections="['top', 'bottom']">
+    <div class="text-xl p-2">
+      <video src="/flow-chat-basic-memory.mp4" class="w-600px h-360px" controls />
+    </div>
+  </UserNode>
+
+  <ConnectionLine
+    parent-selector="#page4-root"
+    start-selector="#page4-title"
+    end-selector="#page4-video"
+    direction="vertical"
+  />
+  <ConnectionLine
+    parent-selector="#page4-root"
+    start-selector="#page4-subtitle"
+    end-selector="#page4-item1"
+    direction="vertical"
+  />
+</div>
 
 <!--
 这是一个非常重要的更新 - 记忆系统。FlowChat 现在可以记住你之前说过的重要信息，
@@ -81,167 +145,124 @@ FlowChat 现在拥有了记忆能力
 
 ---
 
-# 多模态输入支持
+<div id="page5-root" class="w-full h-full absolute top-0 left-0">
+  <AssistantNode class="b-4 rounded-xl absolute top-8 left-8 w-max" id="page5-title" :connections="['top', 'bottom']">
+    <div class="text-5xl p-2">多模态输入支持</div>
+  </AssistantNode>
 
-<div class="text-center mt-8">
-  <div class="text-6xl mb-8">🖼️ 📝 🎤</div>
-  <p class="text-2xl">
-    现在支持多种输入方式
-  </p>
-  <ul class="text-left mt-8 text-xl">
-    <li>✅ 文字输入</li>
-    <li>✅ 图片上传</li>
-    <li>✅ 多模态组合</li>
-    <li>✅ 富媒体内容处理</li>
-  </ul>
-</div>
+  <UserNode class="b-4 rounded-xl absolute top-16 left-8 w-max" id="page5-subtitle" :connections="['top', 'bottom']">
+    <div class="text-2xl p-2">现在支持多种输入方式</div>
+  </UserNode>
 
-<!--
-FlowChat 现在支持多模态输入了！你不仅可以发送文字，还可以上传图片，让 AI 理解和分析图片内容。
-这大大扩展了 FlowChat 的使用场景，比如可以让 AI 帮你分析图表、理解截图、处理设计稿等等。
--->
-
----
-
-# 用户体验提升
-
----
-
-## 新的输入界面
-
-- 更加现代化的设计
-- 更直观的操作方式
-- 支持多种输入模式
-- 更好的响应式布局
-
-::right::
-
-## 智能会话管理
-
-- 自动更新会话标题
-- 根据对话内容智能命名
-- 不再需要手动命名
-- 更容易找到历史对话
-
-<!--
-在用户体验方面，我重新设计了输入界面，让它更加现代化和易用。同时，FlowChat 现在可以根据对话内容
-自动生成会话标题，你不再需要手动命名每个对话，FlowChat 会智能地理解对话主题并生成合适的标题。
--->
-
----
-
-# 对话增强功能
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div class="p-6 bg-blue-500/10 rounded-lg">
-    <h3 class="text-2xl mb-4">🔄 重新生成</h3>
-    <p>对 AI 的回答不满意？<br/>一键重新生成新的回答</p>
-  </div>
-  <div class="p-6 bg-green-500/10 rounded-lg">
-    <h3 class="text-2xl mb-4">📝 总结功能</h3>
-    <p>自动总结长对话内容<br/>快速回顾重点信息</p>
-  </div>
-  <div class="p-6 bg-purple-500/10 rounded-lg">
-    <h3 class="text-2xl mb-4">🛠️ 工具调用显示</h3>
-    <p>清晰展示 AI 使用的工具<br/>提高透明度和可控性</p>
-  </div>
-  <div class="p-6 bg-orange-500/10 rounded-lg">
-    <h3 class="text-2xl mb-4">💭 思考过程展示</h3>
-    <p>专门的组件显示 AI 的思考<br/>理解 AI 的推理过程</p>
-  </div>
-</div>
-
-<!--
-FlowChat 现在有了更多实用的对话功能。你可以重新生成 AI 的回答，如果对结果不满意的话。
-可以让 AI 总结长对话，快速回顾重点。还能看到 AI 使用了哪些工具，以及它的思考过程，
-这让整个对话过程更加透明和可控。
--->
-
----
-
-# 架构优化
-
-- **会话状态管理**：提取会话逻辑到独立的 store
-- **消息内容重构**：统一的内容部分结构
-- **数据库优化**：级联删除，并发安全的迁移
-- **Token 流式传输修复**：更流畅的打字效果
-- **防重复发送**：添加发送中的保护机制
-
-<!--
-在底层架构方面，我做了很多优化。重构了状态管理，让代码更加清晰和可维护。
-优化了数据库操作，修复了一些边界情况的 bug。这些改进虽然用户不太能直接感知到，
-但它们让 FlowChat 运行得更加稳定和高效。
--->
-
----
-
-# 用户界面细节优化
-
-<div class="mt-8 text-xl">
-  <ul class="space-y-4">
-    <li>✅ 修复对话框 z-index 问题</li>
-    <li>✅ 修复推理组件显示不稳定问题</li>
-    <li>✅ 避免空思考块的显示</li>
-    <li>✅ 将助手操作移到工具栏</li>
-    <li>✅ 更好的交互反馈</li>
-  </ul>
-</div>
-
-<!--
-在界面细节方面，我修复了很多小问题，比如对话框层级问题、组件显示不稳定等。
-这些看起来是小改进，但它们都能让使用体验更加流畅。细节决定成败，
-我一直在努力打磨 FlowChat 的每一个细节。
--->
-
----
-
-# 总结
-
-<div class="text-xl mt-8">
-  <p class="mb-6">从 9598850 提交到现在，FlowChat 经历了 <strong class="text-3xl text-blue-400">24</strong> 次重要更新</p>
-
-  <div class="grid grid-cols-2 gap-6 mt-8">
-    <div>
-      <h3 class="text-2xl mb-4 text-green-400">新增功能</h3>
-      <ul class="space-y-2">
-        <li>• 向量搜索</li>
-        <li>• 记忆系统</li>
-        <li>• 多模态输入</li>
-        <li>• 智能标题</li>
-        <li>• 思考过程展示</li>
-      </ul>
+  <AssistantNode class="b-4 rounded-xl absolute top-24 left-8 w-max" id="page5-item1" :connections="['top', 'bottom']">
+    <div class="text-xl p-2">
+      <div>比如图片上传</div>
+      <img src="/flow-chat-multimodal-input.jpg" class="rounded-xl w-600px h-195px object-contain" />
     </div>
-    <div>
-      <h3 class="text-2xl mb-4 text-blue-400">优化改进</h3>
-      <ul class="space-y-2">
-        <li>• 全新 UI 设计</li>
-        <li>• 架构重构</li>
-        <li>• 性能优化</li>
-        <li>• Bug 修复</li>
-        <li>• 用户体验提升</li>
-      </ul>
-    </div>
-  </div>
+  </AssistantNode>
+
+  <ConnectionLine
+    parent-selector="#page5-root"
+    start-selector="#page5-title"
+    end-selector="#page5-subtitle"
+    direction="vertical"
+  />
+  <ConnectionLine
+    parent-selector="#page5-root"
+    start-selector="#page5-title"
+    end-selector="#page5-subtitle"
+    direction="vertical"
+  />
+  <ConnectionLine
+    parent-selector="#page5-root"
+    start-selector="#page5-subtitle"
+    end-selector="#page5-item1"
+    direction="vertical"
+  />
 </div>
 
 <!--
-总结一下，从指定的提交开始到现在，FlowChat 经历了 24 次重要更新。
-新增了向量搜索、记忆系统、多模态输入等重要功能，同时对用户界面和底层架构都做了大量优化。
-这些更新让 FlowChat 变得更加智能、更加好用。
+在图中大家应该也不难看到 AI 的回复里是不是多出来了一个 thinking 的显示，这也是更新的一部分。
 -->
 
 ---
-class: text-center
----
 
-# 谢谢大家！
+<div id="page10-root" class="w-full h-full absolute top-0 left-0">
+  <AssistantNode class="b-4 rounded-xl absolute top-32 left-1/2 -translate-x-1/2 w-max" id="page10-title" :connections="['top', 'bottom']">
+    <div class="text-2xl p-2">不只 FlowChat</div>
+  </AssistantNode>
 
-<div class="mt-8">
-  <p class="text-xl mb-4">欢迎体验 FlowChat</p>
-  <p class="text-lg text-gray-400">https://github.com/lemonnekogh/flow-chat</p>
+  <UserNode v-click="2" class="b-4 rounded-xl absolute top-40 left-1/2 -translate-x-1/2 w-max" id="page10-subtitle" :connections="['top', 'bottom']">
+    <div class="text-6xl py-2 px-8">AIRI 的更新</div>
+  </UserNode>
+
+  <ConnectionLine
+    v-click="1"
+    parent-selector="#page10-root"
+    start-selector="#page10-title"
+    end-selector="#page10-subtitle"
+    direction="vertical"
+  />
 </div>
 
 <!--
-谢谢大家！FlowChat 是一个开源项目，欢迎大家来体验、反馈和贡献。
-如果有任何问题或建议，欢迎和我交流！
+不只是 FlowChat
+
+[CLICK]
+
+不只是 FlowChat，AIRI 我也给 AIRI 写了一点小小的更新。
+-->
+
+---
+
+<div id="page11-root" class="w-full h-full absolute top-0 left-0 flex justify-center gap-8 items-center">
+  <AssistantNode class="b-4 rounded-xl w-max" id="page11-title" :connections="['top', 'bottom']">
+    <div class="text-xl p-2">
+      <div>发送通知的能力</div>
+      <video src="/airi-notification-capability.mp4" class="w-180px h-400px" controls />
+    </div>
+  </AssistantNode>
+  <AssistantNode class="b-4 rounded-xl w-max" id="page11-title" :connections="['top', 'bottom']">
+    <div class="text-xl p-2">
+      <div>iOS 试验性适配</div>
+      <video src="/airi-ios-color-scheme.mp4" class="w-180px h-400px" controls />
+    </div>
+  </AssistantNode>
+</div>
+
+<!--
+我赋予了 AIRI 发送通知的能力，她将来可以看心情发通知来找你。
+
+[CLICK]
+
+对，它是手机端的适配，我们称之为 Pocket，口袋 AIRI，它的图标可以跟随 iOS 的深色模式自动切换。
+-->
+
+---
+
+<div id="page11-root" class="w-full h-full absolute top-0 left-0">
+  <AssistantNode class="absolute left-8 top-8 rounded-xl w-max" id="page11-title" :connections="['top', 'bottom']">
+    <div class="text-xl p-2">谢谢大家！</div>
+  </AssistantNode>
+  <UserNode class="rounded-xl w-max absolute left-8 top-18" id="page11-qrcodes" :connections="['top', 'bottom']">
+    <div p-2>
+      <img src="/qr-codes.png" class="w-600px h-full object-contain" />
+    </div>
+  </UserNode>
+  <ConnectionLine
+    parent-selector="#page11-root"
+    start-selector="#page11-title"
+    end-selector="#page11-qrcodes"
+    direction="vertical"
+  />
+  <ConnectionLine
+    parent-selector="#page11-root"
+    start-selector="#page11-welcome"
+    end-selector="#page11-link"
+    direction="vertical"
+  />
+</div>
+
+<!--
+谢谢大家！我把 FlowChat 和 AIRI 的更新都放在了这里，欢迎大家来体验、反馈和贡献。
 -->
