@@ -57,10 +57,29 @@ importers:
         version: 0.25.0
       '@vueuse/core':
         specifier: ^13.5.0
-        version: 13.5.0(vue@3.5.13(typescript@5.8.2))
+        version: 13.5.0(vue@3.5.17(typescript@5.8.3))
       '@vueuse/shared':
         specifier: ^14.0.0
-        version: 14.0.0(vue@3.5.13(typescript@5.8.2))
+        version: 14.0.0(vue@3.5.17(typescript@5.8.3))
+    devDependencies:
+      '@iconify-json/carbon':
+        specifier: ^1.1.30
+        version: 1.2.10
+
+  packages/20260130-demo-inn:
+    dependencies:
+      '@slidev/cli':
+        specifier: ^0.48.0-beta.0
+        version: 0.48.9(@babel/parser@7.28.0)(@nuxt/kit@3.16.0)(@types/markdown-it@14.1.2)(@types/node@22.16.3)(@vue/compiler-sfc@3.5.17)(postcss@8.5.6)(rollup@4.36.0)
+      '@slidev/theme-default':
+        specifier: ^0.25.0
+        version: 0.25.0
+      '@vueuse/core':
+        specifier: ^13.5.0
+        version: 13.5.0(vue@3.5.17(typescript@5.8.3))
+      '@vueuse/shared':
+        specifier: ^14.0.0
+        version: 14.0.0(vue@3.5.17(typescript@5.8.3))
     devDependencies:
       '@iconify-json/carbon':
         specifier: ^1.1.30
@@ -6015,13 +6034,6 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/core@13.5.0(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      '@types/web-bluetooth': 0.0.21
-      '@vueuse/metadata': 13.5.0
-      '@vueuse/shared': 13.5.0(vue@3.5.13(typescript@5.8.2))
-      vue: 3.5.13(typescript@5.8.2)
-
   '@vueuse/core@13.5.0(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@types/web-bluetooth': 0.0.21
@@ -6082,17 +6094,13 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/shared@13.5.0(vue@3.5.13(typescript@5.8.2))':
-    dependencies:
-      vue: 3.5.13(typescript@5.8.2)
-
   '@vueuse/shared@13.5.0(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
-  '@vueuse/shared@14.0.0(vue@3.5.13(typescript@5.8.2))':
+  '@vueuse/shared@14.0.0(vue@3.5.17(typescript@5.8.3))':
     dependencies:
-      vue: 3.5.13(typescript@5.8.2)
+      vue: 3.5.17(typescript@5.8.3)
 
   acorn@8.14.1: {}
 
