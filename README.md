@@ -19,3 +19,4 @@ with `mise lock node pnpm`.
 
 - [Flow Chat Demo Inn 20250322](./packages/20250322-demo-inn/slides.md)
 - [Flow Chat Demo Inn 20250727](./packages/20250727-demo-inn/slides.md)
+- [Game AI Demo Inn 20260726](./packages/20260726-demo-inn-game-ai/slides.md)

@@ -1,0 +1,35 @@
+{
+  "name": "2026-07-26-demo-inn-game-ai",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "build:balatro": "slidev build balatro-next-demo.md",
+    "dev": "slidev --open",
+    "dev:balatro": "slidev balatro-next-demo.md --open",
+    "export": "slidev export --with-clicks --wait 1000 --wait-until networkidle"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.5.0",
+    "@slidev/client": "^52.5.0",
+    "@slidev/theme-default": "^0.25.0",
+    "shiki": "^4.3.1",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@fontsource-variable/comfortaa": "^5.2.8",
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@fontsource-variable/nunito": "^5.2.7",
+    "@fontsource/kiwi-maru": "^5.2.8",
+    "@fontsource/momo-trust-display": "^5.2.1",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/mingcute": "^1.2.7",
+    "@iconify-json/simple-icons": "^1.2.55",
+    "@proj-airi/font-chillroundm": "^0.10.2",
+    "@slidev/types": "^52.5.0",
+    "@types/seedrandom": "^3.0.8",
+    "playwright-chromium": "^1.62.0",
+    "seedrandom": "^3.0.5",
+    "unocss": "^66.5.4"
+  }
+}
